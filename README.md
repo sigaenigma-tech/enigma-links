@@ -1,11 +1,12 @@
-# ENIGMA Links v5
-Página oficial de links da ENIGMA.
+# ENIGMA Links v6
+Versão com colmeia hexagonal visível e efeito de condução elétrica.
 
-## Besan
-Para usar a tipografia oficial, adicione à raiz do projeto um arquivo licenciado seu chamado:
-- Besan.woff2 (preferido), ou
-- Besan.ttf, ou
+## Fonte Besan
+Adicione à raiz um arquivo seu licenciado com um destes nomes:
+- Besan.woff2
+- Besan.ttf
 - Besan.otf
 
-## Publicação
-Substitua os arquivos na raiz do repositório `enigma-links`. A Vercel conectada ao GitHub fará o redeploy automaticamente.
+## Atualização
+Suba os arquivos para a raiz do repositório `enigma-links`.
+A Vercel fará o redeploy automaticamente.
