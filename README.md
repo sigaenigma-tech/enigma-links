@@ -1,21 +1,11 @@
-# ENIGMA // CONNECT
+# ENIGMA — Links Oficiais
 
-Página estática de links oficiais da ENIGMA.
+Página estática independente para os links oficiais da ENIGMA.
 
-## Publicar gratuitamente na Vercel
-1. Crie um repositório novo no GitHub.
-2. Envie `index.html` e `vercel.json`.
-3. Na Vercel, crie um novo projeto importando esse repositório.
-4. Framework Preset: **Other**.
-5. Build Command: deixe vazio.
-6. Output Directory: deixe vazio.
-7. Deploy.
+## Arquivos
+- `index.html` — página principal
+- `logo-enigma.png` — logo oficial exibida na página
+- `vercel.json` — configuração simples da Vercel
 
-## Logo e tipografia
-O layout já está com a estética definida. O símbolo no topo é apenas um placeholder geométrico para evitar alterar/recriar a logo oficial. Quando tiver o arquivo oficial da logo disponível na pasta do projeto, substitua o bloco `.mark` por uma imagem, por exemplo:
-
-```html
-<div class="mark"><img src="logo-enigma.svg" alt="ENIGMA"></div>
-```
-
-Para usar Besan exatamente, adicione o arquivo da fonte ao seu projeto (caso tenha licença/arquivo próprio) e uma regra `@font-face` no CSS. Não inclua nem redistribua arquivos de fonte sem a licença adequada.
+## Publicação
+Envie os arquivos acima para a raiz do repositório `enigma-links`. A Vercel fará o redeploy automaticamente após o commit.
