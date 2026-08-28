@@ -1,358 +1,67 @@
 <!doctype html>
 <html lang="pt-BR">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
-  <meta name="theme-color" content="#050507" />
-  <title>ENIGMA | Links Oficiais</title>
-  <meta name="description" content="Links oficiais da ENIGMA — WhatsApp, Instagram, avaliações e localização." />
-  <style>
-    :root{
-      --bg:#050507;
-      --text:#f7f7fb;
-      --muted:#b6b6c2;
-      --purple:#9b35ff;
-      --purple2:#6f20ff;
-      --blue:#2487ff;
-      --blue2:#005dff;
-    }
-
-    *{box-sizing:border-box}
-    html,body{margin:0;min-height:100%;background:var(--bg);color:var(--text)}
-    body{
-      min-height:100svh;
-      overflow-x:hidden;
-      font-family:"Besan","Eurostile","Orbitron","Arial Narrow",Arial,sans-serif;
-      background:#050507;
-    }
-    a{color:inherit;text-decoration:none}
-
-    /* ===== FUNDO ANIMADO ===== */
-    .cyber-bg{
-      position:fixed;
-      inset:0;
-      overflow:hidden;
-      pointer-events:none;
-      z-index:0;
-      background:
-        radial-gradient(circle at 13% 16%,rgba(139,37,255,.13),transparent 28%),
-        radial-gradient(circle at 88% 28%,rgba(23,111,255,.12),transparent 31%),
-        radial-gradient(circle at 77% 82%,rgba(40,99,255,.08),transparent 34%),
-        linear-gradient(180deg,#030305 0%,#07070a 48%,#030305 100%);
-    }
-
-    .cyber-bg::after{
-      content:"";
-      position:absolute;
-      inset:0;
-      background:radial-gradient(ellipse at center,transparent 38%,rgba(0,0,0,.46) 100%);
-      z-index:3;
-    }
-
-    .network{
-      position:absolute;
-      inset:-7%;
-      width:114%;
-      height:114%;
-      opacity:.78;
-      z-index:1;
-    }
-
-    .hex-grid{opacity:.25}
-    .hex-line{fill:none;stroke:rgba(120,91,180,.22);stroke-width:.72}
-
-    .electric{
-      fill:none;
-      stroke:url(#electricGradient);
-      stroke-width:1.15;
-      stroke-linecap:round;
-      stroke-dasharray:3 12 20 18;
-      filter:url(#softGlow);
-      opacity:.72;
-      animation:energyFlow 14s linear infinite;
-    }
-    .electric.e2{animation-duration:19s;animation-delay:-6s;opacity:.55}
-    .electric.e3{animation-duration:16s;animation-delay:-11s;opacity:.6}
-    .electric.e4{animation-duration:22s;animation-delay:-3s;opacity:.42}
-
-    .node{
-      transform-box:fill-box;
-      transform-origin:center;
-      filter:url(#nodeGlow);
-      animation:nodePulse 5.6s ease-in-out infinite;
-    }
-    .node.purple{fill:#a33cff}
-    .node.blue{fill:#247cff}
-    .node.n2{animation-delay:-1.7s}.node.n3{animation-delay:-3.4s}.node.n4{animation-delay:-4.8s}.node.n5{animation-delay:-2.3s}.node.n6{animation-delay:-.8s}
-
-    .orb{
-      position:absolute;
-      border-radius:999px;
-      filter:blur(2px);
-      opacity:.2;
-      animation:floatOrb 13s ease-in-out infinite;
-      z-index:2;
-    }
-    .orb.one{width:190px;height:190px;left:-80px;top:28%;background:radial-gradient(circle,rgba(149,43,255,.36),transparent 67%)}
-    .orb.two{width:220px;height:220px;right:-105px;top:56%;background:radial-gradient(circle,rgba(25,112,255,.32),transparent 68%);animation-delay:-6s}
-
-    @keyframes energyFlow{to{stroke-dashoffset:-240}}
-    @keyframes nodePulse{0%,100%{opacity:.22;transform:scale(.75)}50%{opacity:1;transform:scale(1.35)}}
-    @keyframes floatOrb{0%,100%{transform:translate3d(0,-12px,0)}50%{transform:translate3d(14px,20px,0)}}
-
-    /* ===== CONTEÚDO ===== */
-    .page{
-      position:relative;
-      z-index:5;
-      width:min(100%,520px);
-      margin:0 auto;
-      min-height:100svh;
-      padding:clamp(32px,7vh,68px) 22px calc(28px + env(safe-area-inset-bottom));
-      display:flex;
-      flex-direction:column;
-      justify-content:center;
-    }
-
-    .brand{text-align:center;margin-bottom:30px}
-    .logo{
-      display:block;
-      width:min(62vw,260px);
-      max-height:220px;
-      object-fit:contain;
-      margin:0 auto 17px;
-      filter:drop-shadow(0 0 18px rgba(255,255,255,.035));
-    }
-
-    .brand-line{
-      width:min(84%,340px);
-      height:1px;
-      margin:5px auto 20px;
-      background:linear-gradient(90deg,transparent,var(--purple),rgba(200,81,255,.9),var(--blue),transparent);
-      box-shadow:0 0 12px rgba(139,46,255,.48);
-      position:relative;
-      overflow:visible;
-    }
-    .brand-line::after{
-      content:"";
-      position:absolute;
-      width:38px;height:3px;
-      left:10%;top:-1px;
-      border-radius:4px;
-      background:#a944ff;
-      box-shadow:0 0 12px #9932ff;
-      animation:scanLine 5.7s ease-in-out infinite;
-    }
-    @keyframes scanLine{0%,100%{left:9%;opacity:.45}50%{left:80%;opacity:1}}
-
-    .tagline{
-      margin:0 auto;
-      max-width:360px;
-      color:#b968ff;
-      text-transform:uppercase;
-      font-size:clamp(12px,3.25vw,15px);
-      line-height:1.65;
-      letter-spacing:.22em;
-      font-weight:500;
-      text-shadow:0 0 18px rgba(151,49,255,.22);
-    }
-
-    .links{display:grid;gap:14px}
-
-    .link{
-      --accent:var(--purple);
-      position:relative;
-      min-height:78px;
-      display:grid;
-      grid-template-columns:52px 1fr 24px;
-      align-items:center;
-      gap:15px;
-      padding:13px 17px;
-      background:linear-gradient(180deg,rgba(9,9,14,.82),rgba(3,3,6,.88));
-      border:1px solid color-mix(in srgb,var(--accent) 76%,white 8%);
-      clip-path:polygon(12px 0,calc(100% - 12px) 0,100% 12px,100% calc(100% - 12px),calc(100% - 12px) 100%,12px 100%,0 calc(100% - 12px),0 12px);
-      box-shadow:0 0 16px color-mix(in srgb,var(--accent) 22%,transparent),inset 0 0 19px rgba(255,255,255,.018);
-      transition:transform .2s ease,filter .2s ease;
-      isolation:isolate;
-      overflow:hidden;
-    }
-    .link.blue{--accent:var(--blue)}
-
-    .link::before{
-      content:"";
-      position:absolute;
-      inset:1px;
-      clip-path:inherit;
-      background:
-        linear-gradient(90deg,color-mix(in srgb,var(--accent) 25%,transparent),transparent 20% 80%,color-mix(in srgb,var(--accent) 20%,transparent)),
-        linear-gradient(180deg,rgba(255,255,255,.015),rgba(0,0,0,.12));
-      z-index:-1;
-    }
-    .link::after{
-      content:"";
-      position:absolute;
-      width:33%;height:130%;
-      left:-45%;top:-15%;
-      background:linear-gradient(90deg,transparent,color-mix(in srgb,var(--accent) 18%,transparent),rgba(255,255,255,.08),transparent);
-      transform:skewX(-18deg);
-      animation:buttonSweep 7.5s ease-in-out infinite;
-      z-index:-1;
-    }
-    .link:nth-child(2)::after{animation-delay:-1.8s}.link:nth-child(3)::after{animation-delay:-3.4s}.link:nth-child(4)::after{animation-delay:-5.1s}
-    @keyframes buttonSweep{0%,58%{left:-48%;opacity:0}68%{opacity:1}82%,100%{left:118%;opacity:0}}
-
-    .link:hover,.link:focus-visible{transform:translateY(-2px) scale(1.005);filter:brightness(1.18);outline:none}
-    .link:active{transform:scale(.985)}
-
-    .icon{
-      width:48px;height:48px;
-      display:grid;place-items:center;
-      color:var(--accent);
-      filter:drop-shadow(0 0 8px color-mix(in srgb,var(--accent) 70%,transparent));
-    }
-    .icon svg{width:36px;height:36px;fill:none;stroke:currentColor;stroke-width:1.75;stroke-linecap:round;stroke-linejoin:round}
-
-    .label{
-      font-size:clamp(15px,4vw,18px);
-      text-transform:uppercase;
-      letter-spacing:.13em;
-      line-height:1.25;
-      font-weight:500;
-    }
-    .sub{
-      display:block;
-      margin-top:4px;
-      color:var(--muted);
-      font-family:Arial,Helvetica,sans-serif;
-      font-size:11px;
-      letter-spacing:.02em;
-      text-transform:none;
-      font-weight:400;
-    }
-    .arrow{
-      color:var(--accent);
-      font-family:Arial,sans-serif;
-      font-size:34px;
-      line-height:1;
-      font-weight:200;
-      filter:drop-shadow(0 0 7px color-mix(in srgb,var(--accent) 70%,transparent));
-      transform:translateY(-1px);
-    }
-
-    footer{
-      width:max-content;
-      max-width:100%;
-      margin:30px auto 0;
-      padding:10px 18px;
-      color:#dedee8;
-      border-left:1px solid rgba(155,53,255,.75);
-      border-right:1px solid rgba(155,53,255,.75);
-      font-size:10px;
-      letter-spacing:.22em;
-      text-transform:uppercase;
-      text-align:center;
-      background:rgba(8,8,12,.32);
-      box-shadow:0 0 18px rgba(128,42,255,.055);
-    }
-
-    @media(max-width:380px){
-      .page{padding-left:14px;padding-right:14px}
-      .link{grid-template-columns:44px 1fr 20px;gap:10px;padding-left:13px;padding-right:13px;min-height:72px}
-      .icon{width:42px;height:42px}.icon svg{width:31px;height:31px}
-      .label{letter-spacing:.095em}
-    }
-
-    @media(prefers-reduced-motion:reduce){
-      *,*::before,*::after{animation:none!important;transition:none!important}
-      .electric{stroke-dasharray:none;opacity:.35}
-    }
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#050508">
+<title>ENIGMA</title>
+<style>
+@font-face{font-family:Besan;src:url("./Besan.woff2") format("woff2"),url("./Besan.ttf") format("truetype"),url("./Besan.otf") format("opentype");font-display:swap}
+:root{--purple:#8a2eff;--blue:#168cff;--bg:#030305}
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%;background:var(--bg);color:#fff}
+body{font-family:Besan,Arial,sans-serif;overflow-x:hidden}
+#network{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;background:radial-gradient(circle at 20% 20%,rgba(138,46,255,.08),transparent 32%),radial-gradient(circle at 82% 70%,rgba(22,140,255,.08),transparent 34%),#030305}
+.vignette{position:fixed;inset:0;z-index:1;pointer-events:none;background:radial-gradient(ellipse at center,transparent 30%,rgba(0,0,0,.24) 72%,rgba(0,0,0,.72) 100%)}
+main{position:relative;z-index:2;min-height:100svh;width:min(100%,520px);margin:auto;padding:clamp(34px,7vh,72px) 22px 34px;display:flex;flex-direction:column;align-items:center}
+.logo{width:min(58vw,260px);height:auto;display:block;filter:drop-shadow(0 0 14px rgba(255,255,255,.06));margin-bottom:clamp(34px,5vh,54px)}
+.links{width:100%;display:grid;gap:18px}
+.link{--accent:var(--purple);position:relative;min-height:92px;padding:0 23px;border:1px solid color-mix(in srgb,var(--accent) 78%,white 22%);clip-path:polygon(18px 0,calc(100% - 18px) 0,100% 18px,100% calc(100% - 18px),calc(100% - 18px) 100%,18px 100%,0 calc(100% - 18px),0 18px);background:linear-gradient(90deg,color-mix(in srgb,var(--accent) 7%,transparent),rgba(4,4,8,.86) 28%,rgba(4,4,8,.91) 72%,color-mix(in srgb,var(--accent) 7%,transparent));display:grid;grid-template-columns:50px 1fr 28px;align-items:center;gap:16px;color:white;text-decoration:none;letter-spacing:.16em;text-transform:uppercase;box-shadow:0 0 15px color-mix(in srgb,var(--accent) 18%,transparent),inset 0 0 18px rgba(255,255,255,.018);transition:.2s ease}
+.link.blue{--accent:var(--blue)}
+.link:before{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(90deg,transparent 0 38%,color-mix(in srgb,var(--accent) 28%,transparent) 50%,transparent 62%);transform:translateX(-120%);animation:scan 6s ease-in-out infinite}
+.link:nth-child(2):before{animation-delay:1.3s}.link:nth-child(3):before{animation-delay:2.6s}.link:nth-child(4):before{animation-delay:3.9s}
+@keyframes scan{0%,68%{transform:translateX(-120%)}88%,100%{transform:translateX(120%)}}
+.link:hover,.link:active{transform:translateY(-2px);box-shadow:0 0 25px color-mix(in srgb,var(--accent) 32%,transparent),inset 0 0 22px color-mix(in srgb,var(--accent) 8%,transparent)}
+.icon{width:42px;height:42px;display:grid;place-items:center;color:var(--accent);filter:drop-shadow(0 0 7px var(--accent))}
+.icon svg{width:36px;height:36px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.label{font-size:clamp(15px,4vw,19px);line-height:1.25}
+.arrow{font:300 38px/1 Arial;color:var(--accent);filter:drop-shadow(0 0 6px var(--accent))}
+footer{margin-top:auto;padding-top:38px;font-family:Besan,Arial,sans-serif;font-size:9px;letter-spacing:.32em;color:rgba(255,255,255,.34);text-transform:uppercase}
+@media(max-width:380px){main{padding-left:16px;padding-right:16px}.link{min-height:82px;padding:0 17px;grid-template-columns:43px 1fr 22px;gap:11px}.label{font-size:14px;letter-spacing:.12em}}
+@media(prefers-reduced-motion:reduce){.link:before{animation:none}}
+</style>
 </head>
 <body>
-  <div class="cyber-bg" aria-hidden="true">
-    <svg class="network" viewBox="0 0 430 900" preserveAspectRatio="xMidYMid slice">
-      <defs>
-        <linearGradient id="electricGradient" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0" stop-color="#9d37ff"/>
-          <stop offset=".45" stop-color="#752cff"/>
-          <stop offset="1" stop-color="#1d7cff"/>
-        </linearGradient>
-        <filter id="softGlow" x="-60%" y="-60%" width="220%" height="220%">
-          <feGaussianBlur stdDeviation="2.6" result="b"/>
-          <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
-        </filter>
-        <filter id="nodeGlow" x="-250%" y="-250%" width="600%" height="600%">
-          <feGaussianBlur stdDeviation="4" result="b"/>
-          <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
-        </filter>
-        <pattern id="hexPattern" width="64" height="55.4" patternUnits="userSpaceOnUse">
-          <path class="hex-line" d="M16 1h32l16 26.7-16 26.7H16L0 27.7Z"/>
-        </pattern>
-      </defs>
-
-      <rect class="hex-grid" width="100%" height="100%" fill="url(#hexPattern)"/>
-
-      <path class="electric" d="M-35 120 C40 88 80 155 146 126 S235 70 306 121 S384 178 470 132"/>
-      <path class="electric e2" d="M-30 300 C54 252 118 348 194 306 S294 247 356 300 S410 335 470 314"/>
-      <path class="electric e3" d="M-38 595 C48 544 121 647 200 594 S299 531 362 585 S417 631 470 607"/>
-      <path class="electric e4" d="M57 -40 C80 70 43 164 102 244 S193 349 147 450 S125 610 202 698 S266 820 255 950"/>
-      <path class="electric e2" d="M385 -30 C332 77 369 170 310 240 S260 391 330 457 S371 614 304 693 S304 818 350 930"/>
-
-      <circle class="node purple" cx="57" cy="113" r="3.8"/>
-      <circle class="node purple n2" cx="146" cy="126" r="4.2"/>
-      <circle class="node blue n3" cx="306" cy="121" r="4"/>
-      <circle class="node blue n4" cx="390" cy="178" r="3.5"/>
-      <circle class="node purple n5" cx="96" cy="290" r="3.5"/>
-      <circle class="node blue n6" cx="356" cy="300" r="4.3"/>
-      <circle class="node purple n3" cx="121" cy="647" r="3.9"/>
-      <circle class="node blue n2" cx="362" cy="585" r="4.4"/>
-      <circle class="node purple n6" cx="201" cy="697" r="3.6"/>
-      <circle class="node blue n5" cx="304" cy="693" r="3.8"/>
-    </svg>
-    <div class="orb one"></div>
-    <div class="orb two"></div>
-  </div>
-
-  <main class="page">
-    <header class="brand">
-      <img class="logo" src="logo-enigma.png" alt="ENIGMA — Acessórios e Eletrônicos" />
-      <div class="brand-line"></div>
-    </header>
-
-    <section class="links" aria-label="Links oficiais da ENIGMA">
-      <a class="link" href="https://wa.me/5522992629718" target="_blank" rel="noopener noreferrer" aria-label="Falar com a ENIGMA no WhatsApp">
-        <span class="icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24"><path d="M20.3 11.9a8.3 8.3 0 0 1-12.2 7.3L4 20.3l1.1-4a8.3 8.3 0 1 1 15.2-4.4Z"/><path d="M8.4 8.1c.6 2.9 2.8 5.2 5.8 5.8"/><path d="M8.4 8.1 7.9 9c-.2.4-.1.9.1 1.3 1.2 2.4 3.1 4.2 5.5 5.3.4.2.9.2 1.3-.1l.9-.7"/></svg>
-        </span>
-        <span class="label">WhatsApp<span class="sub">Fale com a gente</span></span>
-        <span class="arrow" aria-hidden="true">›</span>
-      </a>
-
-      <a class="link" href="https://www.instagram.com/siga.enigma?igsi=dHE1bDIxODNyaHp5" target="_blank" rel="noopener noreferrer" aria-label="Abrir Instagram da ENIGMA">
-        <span class="icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.7" r=".7" fill="currentColor" stroke="none"/></svg>
-        </span>
-        <span class="label">Instagram<span class="sub">@siga.enigma</span></span>
-        <span class="arrow" aria-hidden="true">›</span>
-      </a>
-
-      <a class="link blue" href="https://g.page/r/CY1iEf8BkpyWEBM/review" target="_blank" rel="noopener noreferrer" aria-label="Avaliar a ENIGMA no Google">
-        <span class="icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24"><path d="m12 3 2.8 5.7 6.2.9-4.5 4.4 1.1 6.2-5.6-3-5.6 3 1.1-6.2L3 9.6l6.2-.9L12 3Z"/></svg>
-        </span>
-        <span class="label">Avalie-nos no Google<span class="sub">Conte como foi sua experiência</span></span>
-        <span class="arrow" aria-hidden="true">›</span>
-      </a>
-
-      <a class="link blue" href="https://maps.app.goo.gl/KqEuyUaUb1WfUXNQA" target="_blank" rel="noopener noreferrer" aria-label="Abrir localização da ENIGMA no Google Maps">
-        <span class="icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24"><path d="M12 21s6-5.4 6-11a6 6 0 1 0-12 0c0 5.6 6 11 6 11Z"/><circle cx="12" cy="10" r="2.2"/></svg>
-        </span>
-        <span class="label">Localização<span class="sub">Como chegar na ENIGMA</span></span>
-        <span class="arrow" aria-hidden="true">›</span>
-      </a>
-    </section>
-
-    <footer>Você encontrou a ENIGMA.</footer>
-  </main>
-</body>
-</html>
+<canvas id="network" aria-hidden="true"></canvas><div class="vignette"></div>
+<main>
+<img class="logo" src="./logo-enigma.png" alt="ENIGMA">
+<section class="links" aria-label="Links da Enigma">
+<a class="link" href="https://wa.me/5522992629718" target="_blank" rel="noopener"><span class="icon"><svg viewBox="0 0 24 24"><path d="M20 11.5a8 8 0 0 1-11.8 7L4 20l1.5-4A8 8 0 1 1 20 11.5Z"/><path d="M9 8.5c.4 2.3 2.2 4.1 4.5 4.8l1.3-1.1 2 .9c.2.1.3.3.2.6-.5 1.4-1.6 2-3 1.8-3.7-.6-6.6-3.5-7.2-7.2-.2-1.4.4-2.5 1.8-3 .3-.1.5 0 .6.2l.9 2-1.1 1Z"/></svg></span><span class="label">WhatsApp</span><span class="arrow">›</span></a>
+<a class="link" href="https://www.instagram.com/siga.enigma?igsi=dHE1bDIxODNyaHp5" target="_blank" rel="noopener"><span class="icon"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".7" fill="currentColor" stroke="none"/></svg></span><span class="label">Instagram</span><span class="arrow">›</span></a>
+<a class="link blue" href="https://g.page/r/CY1iEf8BkpyWEBM/review" target="_blank" rel="noopener"><span class="icon"><svg viewBox="0 0 24 24"><path d="m12 3 2.8 5.7 6.2.9-4.5 4.4 1.1 6.2L12 17.3l-5.6 2.9 1.1-6.2L3 9.6l6.2-.9L12 3Z"/></svg></span><span class="label">Avaliações no Google</span><span class="arrow">›</span></a>
+<a class="link blue" href="https://maps.app.goo.gl/KqEuyUaUb1WfUXNQA" target="_blank" rel="noopener"><span class="icon"><svg viewBox="0 0 24 24"><path d="M20 10c0 5-8 11-8 11S4 15 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></svg></span><span class="label">Localização</span><span class="arrow">›</span></a>
+</section>
+<footer>Você encontrou o Enigma</footer>
+</main>
+<script>
+const c=document.getElementById('network'),x=c.getContext('2d');let W,H,dpr,nodes=[],edges=[],pulses=[];
+const PUR=[138,46,255],BLU=[22,140,255];
+function resize(){dpr=Math.min(devicePixelRatio||1,2);W=innerWidth;H=innerHeight;c.width=W*dpr;c.height=H*dpr;c.style.width=W+'px';c.style.height=H+'px';x.setTransform(dpr,0,0,dpr,0,0);build()}
+function build(){nodes=[];edges=[];pulses=[];const r=Math.max(42,Math.min(62,W/7)),dx=Math.sqrt(3)*r,dy=1.5*r;let rows=Math.ceil(H/dy)+3,cols=Math.ceil(W/dx)+3;
+for(let row=-2;row<rows;row++)for(let col=-2;col<cols;col++){let px=col*dx+(row%2?dx/2:0),py=row*dy;nodes.push({x:px,y:py,row,col})}
+const map=new Map(nodes.map((n,i)=>[n.row+','+n.col,i]));
+nodes.forEach((n,i)=>{[[0,1],[1,0],[1,n.row%2?1:-1]].forEach(([dr,dc])=>{let j=map.get((n.row+dr)+','+(n.col+dc));if(j!=null)edges.push([i,j])})});
+for(let i=0;i<Math.max(8,Math.floor(W*H/65000));i++)spawn(true)}
+function spawn(random=false){let e=edges[Math.floor(Math.random()*edges.length)];pulses.push({e,t:random?Math.random():0,s:.0016+Math.random()*.0018,color:Math.random()<.5?PUR:BLU,life:.55+Math.random()*.45})}
+function line(a,b,alpha,color,width=1){x.strokeStyle=`rgba(${color[0]},${color[1]},${color[2]},${alpha})`;x.lineWidth=width;x.beginPath();x.moveTo(a.x,a.y);x.lineTo(b.x,b.y);x.stroke()}
+let last=performance.now(),spawnClock=0;
+function draw(now){let dt=Math.min(40,now-last);last=now;x.clearRect(0,0,W,H);
+edges.forEach((e,k)=>{let a=nodes[e[0]],b=nodes[e[1]],mid=(a.x+b.x)/2,col=mid<W/2?PUR:BLU;line(a,b,.075,col,.7)});
+spawnClock+=dt;if(spawnClock>420){spawnClock=0;if(pulses.length<24)spawn()}
+pulses.forEach(p=>{p.t+=p.s*dt;let a=nodes[p.e[0]],b=nodes[p.e[1]],t=p.t,q={x:a.x+(b.x-a.x)*t,y:a.y+(b.y-a.y)*t};line(a,b,.12,p.color,1);
+let grad=x.createRadialGradient(q.x,q.y,0,q.x,q.y,15);grad.addColorStop(0,`rgba(${p.color[0]},${p.color[1]},${p.color[2]},.95)`);grad.addColorStop(.25,`rgba(${p.color[0]},${p.color[1]},${p.color[2]},.42)`);grad.addColorStop(1,`rgba(${p.color[0]},${p.color[1]},${p.color[2]},0)`);x.fillStyle=grad;x.beginPath();x.arc(q.x,q.y,15,0,Math.PI*2);x.fill();
+x.fillStyle=`rgb(${p.color.join(',')})`;x.beginPath();x.arc(q.x,q.y,2.2,0,Math.PI*2);x.fill()});
+pulses=pulses.filter(p=>p.t<1);requestAnimationFrame(draw)}
+addEventListener('resize',resize);resize();requestAnimationFrame(draw);
+</script>
+</body></html>

@@ -1,11 +1,11 @@
-# ENIGMA — Links Oficiais
+# ENIGMA Links v5
+Página oficial de links da ENIGMA.
 
-Página estática independente para os links oficiais da ENIGMA.
-
-## Arquivos
-- `index.html` — página principal
-- `logo-enigma.png` — logo oficial exibida na página
-- `vercel.json` — configuração simples da Vercel
+## Besan
+Para usar a tipografia oficial, adicione à raiz do projeto um arquivo licenciado seu chamado:
+- Besan.woff2 (preferido), ou
+- Besan.ttf, ou
+- Besan.otf
 
 ## Publicação
-Envie os arquivos acima para a raiz do repositório `enigma-links`. A Vercel fará o redeploy automaticamente após o commit.
+Substitua os arquivos na raiz do repositório `enigma-links`. A Vercel conectada ao GitHub fará o redeploy automaticamente.
